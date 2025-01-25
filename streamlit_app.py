@@ -1,6 +1,6 @@
-import load_image
-import generate_zip
 import streamlit as st
+import func.load_image as load_image
+import func.generate_zip as generate_zip
 
 
 st.set_page_config(
