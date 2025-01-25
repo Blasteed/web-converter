@@ -53,6 +53,8 @@ def load_image(pdf_files):
 
             images_list.append(image)
 
+            buffer.close()
+
         remove("temp.pdf")
 
     return images_list

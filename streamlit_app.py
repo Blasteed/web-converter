@@ -14,7 +14,7 @@ st.sidebar.title('PDF to Image Converter')
 
 row = st.columns(2)
 
-pdf_files = st.sidebar.file_uploader('Upload a PDF file', label_visibility='hidden', type=["pdf"], accept_multiple_files=True)
+pdf_files = st.sidebar.file_uploader('Upload a PDF file', label_visibility='hidden', type=["pdf"], accept_multiple_files=True, )
 
 if not pdf_files and len(pdf_files) == 0:
     st.sidebar.warning("Upload a PDF file to start")
@@ -22,14 +22,14 @@ if not pdf_files and len(pdf_files) == 0:
 if pdf_files is not None and len(pdf_files) > 0:
     images = load_image.load_image(pdf_files)
 
-    st.sidebar.divider()
+    if len(images) > 1:
 
-    st.sidebar.download_button(
-        label="Download all images",
-        data=generate_zip.generate_zip(images),
-        file_name="images.zip",
-        mime="application/zip"
-    )
+        st.sidebar.download_button(
+            label="Download all images",
+            data=generate_zip.generate_zip(images),
+            file_name="images.zip",
+            mime="application/zip"
+        )
 
     for image in images:
         with st.container(border=True):
