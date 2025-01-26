@@ -32,7 +32,7 @@ if pdf_files is not None and len(pdf_files) > 0:
         )
 
     for image in images:
-        with st.container(border=True):
+        with st.container():
             sx, dx = st.columns(2, gap="medium", vertical_alignment="center")
 
             with sx:
